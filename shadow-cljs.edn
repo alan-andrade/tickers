@@ -8,6 +8,7 @@
  [[reagent "1.0.0"]
   [re-frame "1.2.0"]
   [re-frisk "1.5.0"]
+  [day8.re-frame/http-fx "0.2.3"]
 
   [binaryage/devtools "1.0.3"]]
 

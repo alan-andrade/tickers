@@ -5,6 +5,7 @@
    [tickers.events :as events]
    [tickers.views :as views]
    [tickers.config :as config]
+   [day8.re-frame.http-fx]
    ))
 
 
