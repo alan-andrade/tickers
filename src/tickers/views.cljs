@@ -4,20 +4,29 @@
    [tickers.subs :as subs]
    ))
 
-(defn request []
+(defn trending-coins []
   (let [coins (re-frame/subscribe [::subs/trending-coins])]
-    [:div 
-     [:h1 "Response is"]
-     [:p @coins]
-     [:input {:type "button" :value "fire" :on-click #(re-frame/dispatch [:request-trending-coins])}]]))
+    [:div
+     [:h1 "Trending Coins"]
+     [:input {:type "button" :value "Refresh" :on-click #(re-frame/dispatch [:request-trending-coins])}]
+     (when-not (empty? @coins)
+       [:table
+        [:thead
+         [:tr
+         [:td "Icon"]
+         [:td "Coin"]
+         [:td "Price"]
+         ]]
+        [:tbody
+         (for [coin @coins]
+           [:tr {:key (-> coin .-item .-id)}
+            [:td [:img {:src  (-> coin .-item .-small)}]]
+            [:td (-> coin .-item .-name)]
+            [:td (-> coin .-item .-id)]
+            ]
+           )
+         ]])
+     ]))
 
 (defn main-panel []
-  (let [name (re-frame/subscribe [::subs/name])]
-    [:div
-     [:h1
-      "!!Hello from " @name]
-     [:input {
-              :type "text"
-              :value @name
-              :on-change #(re-frame/dispatch [:name-change (-> % .-target .-value)])}]
-     (request)]))
+  trending-coins)

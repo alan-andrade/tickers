@@ -10,11 +10,6 @@
  (fn [_ _]
    db/default-db))
 
-(re-frame/reg-event-db
-  :name-change
-  (fn [db [_ new-name]]
-    (assoc db :name new-name)))
-
 (re-frame/reg-event-fx
   :request-trending-coins
   (fn [_ _]

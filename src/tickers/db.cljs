@@ -1,5 +1,5 @@
 (ns tickers.db)
 
 (def default-db
-  {:name "re-frame" :response "empty" })
+  {:name "re-frame" :response [] })
 

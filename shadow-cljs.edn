@@ -24,7 +24,7 @@
    :modules
    {:app {:init-fn tickers.core/init}}
    :devtools
-   {:preloads []}
+   {:preloads [re-frisk.preload]}
    :dev
    {:compiler-options
     {:closure-defines
