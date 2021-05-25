@@ -8,7 +8,6 @@
    [day8.re-frame.http-fx]
    ))
 
-
 (defn dev-setup []
   (when config/debug?
     (println "dev mode")))

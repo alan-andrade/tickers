@@ -1,8 +1,9 @@
 (ns tickers.subs
   (:require
-   [re-frame.core :as re-frame]))
+   [re-frame.core :refer [reg-sub]]))
 
-(re-frame/reg-sub
- ::trending-coins
- (fn [db]
-   (-> (:coins (:trending-coins db)) clj->js)))
+(reg-sub
+  ::selected-currency
+  (fn [db]
+    (:selected-currency db)))
+
